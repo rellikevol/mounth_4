@@ -1,0 +1,11 @@
+<hr>
+{% if request.path == '/' %}
+    <a href="{% url 'about_page' %}">О нас</a>
+    <a href="{% url 'contacts_page' %}">Контакты</a><br>
+{% elif request.path == '/about/' %}
+    <a href="{% url 'index-page' %}">Главная</a>
+    <a href="{% url 'contacts_page' %}">Контакты</a><br>
+{% else %}
+     <a href="{% url 'index-page' %}">Главная</a>
+    <a href="{% url 'about_page' %}">О нас</a><br>
+{% endif %}

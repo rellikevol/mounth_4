@@ -4,14 +4,11 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    return HttpResponse('Main Page')
-
-def test_page(request):
-    return HttpResponse('Test', status=404)
+    return render(request, 'blog/index.html')
 
 def get_contacts(request):
-    return HttpResponse('Это контакты')
+    return render(request, 'blog/contacts.html')
 
 def get_about(request):
-    return HttpResponse('Это страница about')
+    return render(request, 'blog/about.html')
 

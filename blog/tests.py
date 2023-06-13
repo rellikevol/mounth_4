@@ -8,24 +8,15 @@ class BlogTestCase(TestCase):
 
     def test_index(self):
         responce = self.client.get(reverse('index-page'))
-        exp_data = 'Main Page'
-        self.assertEqual(exp_data, responce.content.decode())
+        self.assertTemplateUsed(responce, 'blog/index.html')
         self.assertEqual(200, responce.status_code)
-
-    def test_test_page(self):
-        responce = self.client.get(reverse('test_page'))
-        exp_data = 'Test'
-        self.assertEqual(exp_data, responce.content.decode())
-        self.assertEqual(404, responce.status_code)
 
     def test_get_contacts(self):
         responce = self.client.get(reverse('contacts_page'))
-        exp_data = 'Это контакты'
-        self.assertEqual(exp_data, responce.content.decode())
+        self.assertTemplateUsed(responce, 'blog/contacts.html')
         self.assertEqual(200, responce.status_code)
 
     def test_get_about(self):
         responce = self.client.get(reverse('about_page'))
-        exp_data = 'Это страница about'
-        self.assertEqual(exp_data, responce.content.decode())
+        self.assertTemplateUsed(responce, 'blog/about.html')
         self.assertEqual(200, responce.status_code)

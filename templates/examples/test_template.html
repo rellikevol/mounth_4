@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ZGOLOVOK
+{% endblock %}
+
+{% block content %}
+  <h1> Первый заголовок </h1>
+  <hr>
+{#  Отображаем список целиком#}
+  {{ my_list }}
+  <ol>
+{#  Отображаем список целиком #}
+  {% for i in my_list %}
+    <li>{{ i }}</li>
+  {% endfor %}
+</ol>
+
+  {% if 4 in my_list %}
+  <p>4 есть в списке</p>
+  {% endif %}
+{% endblock %}
