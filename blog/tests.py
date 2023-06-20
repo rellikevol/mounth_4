@@ -32,8 +32,3 @@ class BlogTestCase(TestCase):
         responce = self.client.get(reverse('post-update', args=(1, )))
         self.assertTemplateUsed(responce, 'blog/post_update.html')
         self.assertEqual(200, responce.status_code)
-
-    def test_post_delete(self):
-        responce = self.client.get(reverse('post-delete', args=(1, )))
-        self.assertTemplateUsed(responce, 'blog/post_delete.html')
-        self.assertEqual(200, responce.status_code)

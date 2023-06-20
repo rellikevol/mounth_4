@@ -65,7 +65,3 @@ def get_about(request):
 def post_update(request, pk):
     return render(request, 'blog/post_update.html')
 
-
-def post_delete(request, pk):
-    post = Post.objects.get(pk=pk)
-    return render(request, 'blog/post_delete.html', {"post": post})
