@@ -1,0 +1,8 @@
+{% if request.user.is_authenticated %}
+<br>
+    <form action="{% url 'post-create' %}">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-success" value="Создать запись" />
+    </form>
+<br>
+{% endif %}

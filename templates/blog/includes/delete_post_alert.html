@@ -1,0 +1,15 @@
+<div class="card" style="width: 45rem;" align="center">
+  <div class="card-body">
+    <h5 class="card-title">Удаление записи</h5>
+    <p class="card-text">Вы действительно хотите безвозвратно удалить эту запись?</p>
+             <form action="{% url 'post-delete-accept' post.id %}" method="post">
+               {% csrf_token %}
+               <button type="submit" class="btn btn-warning">Да</button>
+             </form>
+          <br>
+            <form action="{% url 'post-detail' post.id %}" method="get">
+               {% csrf_token %}
+               <button type="submit" class="btn btn-warning">Нет</button>
+             </form>
+  </div>
+</div>

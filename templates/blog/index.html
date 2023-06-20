@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block content %}
-<h1>Главная страница</h1>
-
+<h1>Главная страница</h1><br>
+{% include 'blog/includes/create_post_button.html' %}
 {% for post in posts%}
 {% include 'blog/includes/post.html' %}
 {% endfor %}

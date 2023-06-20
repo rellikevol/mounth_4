@@ -1,14 +1,24 @@
-<div class="card mx-auto" style="width: 45rem;"><img src="{{ post.cover.url }}" class="card-img-top" alt="...">
+
+<div class="card mx-auto" style="width: 45rem;" align="left"><img src="{{ post.cover.url }}" class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title">{{ post.title }}</h5>
         <h6 class="card-subtitle mb-2 text-body-secondary">{{ post.created }}</h6>
         {% if request.path == '/' %}
-        <p class="card-text">{{ post.content|truncatewords:10 }}</p>
-        <a href="{% url 'post-detail' post.id %}" class="card-link">Читать далее</a>
+            <p class="card-text">{{ post.content|truncatewords:10 }}</p>
+            <a href="{% url 'post-detail' post.id %}" class="card-link">Читать далее</a>
         {% else %}
-        <p class="card-text">{{ post.content }}</p>
-        <a href="#" class="card-link">Редактировать</a>
+            <p class="card-text">{{ post.content }}</p>
+                {% if request.user.is_superuser %}
+                    <form action="{% url 'post-update' post.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-warning">Редактировать запись</button>
+                    </form>
+                    <br>
+                    <form action="{% url 'post-delete' post.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-warning">Удалить запись</button>
+                    </form>
+                {% endif %}
         {% endif %}
-
     </div></div>
 <br>

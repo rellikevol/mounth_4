@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<h1>Delete post</h1>
+{% include 'blog/includes/delete_post_alert.html' %}
+{% include 'blog/includes/post.html' %}
 {% endblock %}

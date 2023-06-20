@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Создание записи
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Создать запись</button>
+    </form>
+{% endblock %}
+
+XSS Cookies CSRF
